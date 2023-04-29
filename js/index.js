@@ -130,6 +130,7 @@ function handleButtonClick(event) {
   const keyElement = event.target;
   const key = keyElement.textContent;
   const textarea = document.querySelector('.text-area');
+  const divCaps = document.querySelector('.CapsLock');
 
   if (key === 'Backspace') {
     const cursorPosition = textarea.selectionStart;
@@ -152,6 +153,8 @@ function handleButtonClick(event) {
     textarea.value += ' ';
   } else if (key === 'Caps lock') {
     toggleCapsLock();
+  } else if (divCaps.classList.contains('activeCaps')) {
+    textarea.value += key.toUpperCase();
   } else {
     textarea.value += key;
   }
