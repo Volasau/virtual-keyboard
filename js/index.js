@@ -107,7 +107,6 @@ const keyboardLayouts = {
 
 let language = localStorage.getItem('language');
 
-// Если значение language в localStorage не задано, то устанавливаем значение по умолчанию 'en'
 if (!language) {
   language = 'en';
   localStorage.setItem('language', 'en');
@@ -127,11 +126,8 @@ document.body.appendChild(textAreaEl);
 function handleButtonClick(event) {
   const keyElement = event.target;
   const key = keyElement.textContent;
-
-  // Находим текстовое поле, в которое нужно ввести символ
   const textarea = document.querySelector('.text-area');
 
-  // Вводим символ в текстовое поле
   if (key === 'Backspace') {
     const cursorPosition = textarea.selectionStart;
     const startPos = cursorPosition - 1;
@@ -249,6 +245,7 @@ function renderKeyboard() {
   document.body.appendChild(textTitle);
 }
 renderKeyboard();
+
 const toggleLanguage = () => {
   if (language === 'en') {
     language = 'ru';
@@ -258,6 +255,7 @@ const toggleLanguage = () => {
   localStorage.setItem('language', language);
   renderKeyboard();
 };
+
 document.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.altKey) {
     removeKeyboard();
@@ -266,32 +264,22 @@ document.addEventListener('keydown', (event) => {
 });
 
 const keys = document.querySelectorAll('.key');
-// Добавляем обработчик клика на каждую кнопку
 keys.forEach((key) => {
   key.addEventListener('click', handleButtonClick);
 });
 
-// Function to toggle the language of the keyboard
-
 function handleKeyPressK(event) {
-  // Находим элемент клавиши на виртуальной клавиатуре
   const keyElement = document.querySelector(`.${event.code}`);
-  if (!keyElement) return; // Если клавиша не найдена, ничего не делаем
-  // Выделяем клавишу на виртуальной клавиатуре
+  if (!keyElement) return; 
   keyElement.classList.add('active');
 }
 
-// Обработчик отпускания клавиш на физической клавиатуре
 function handleKeyRelease(event) {
-  // Находим элемент клавиши на виртуальной клавиатуре
   const keyElement = document.querySelector(`.${event.code}`);
-  if (!keyElement) return; // Если клавиша не найдена, ничего не делаем
-  // Убираем выделение клавиши на виртуальной клавиатуре
+  if (!keyElement) return;
   keyElement.classList.remove('active');
 }
 
-// Добавляем обработчики событий для нажатия и отпускания клавиш на физической клавиатуре
 document.addEventListener('keydown', handleKeyPressK);
 document.addEventListener('keyup', handleKeyRelease);
 
-/// ///////////////////////////////////////
