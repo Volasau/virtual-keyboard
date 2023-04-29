@@ -105,6 +105,9 @@ const keyboardLayouts = {
   ],
 };
 
+const body = document.querySelector('body');
+body.classList.add('body');
+
 let language = localStorage.getItem('language');
 
 if (!language) {
@@ -270,7 +273,7 @@ keys.forEach((key) => {
 
 function handleKeyPressK(event) {
   const keyElement = document.querySelector(`.${event.code}`);
-  if (!keyElement) return; 
+  if (!keyElement) return;
   keyElement.classList.add('active');
 }
 
@@ -282,4 +285,3 @@ function handleKeyRelease(event) {
 
 document.addEventListener('keydown', handleKeyPressK);
 document.addEventListener('keyup', handleKeyRelease);
-
