@@ -58,7 +58,12 @@ function handleButtonClick(event) {
     textarea.selectionStart = cursorPosition + 4;
     textarea.selectionEnd = cursorPosition + 4;
   } else if (key === 'space') {
-    textarea.value += ' ';
+    const cursorPosition = textarea.selectionStart;
+    const startText = textarea.value.substring(0, cursorPosition);
+    const endText = textarea.value.substring(cursorPosition);
+    textarea.value = `${startText} ${endText}`;
+    textarea.selectionStart = cursorPosition + 1;
+    textarea.selectionEnd = cursorPosition + 1;
   } else if (key === 'Caps lock') {
     toggleCapsLock();
   } else if (divCaps.classList.contains('activeCaps')) {
