@@ -239,9 +239,13 @@ function renderKeyboard() {
     }
     keyboardContainer.appendChild(rowElement);
   }
+  const textForWindows = document.createElement('p');
+  textForWindows.innerHTML = 'Клавиатура создана в операционной системе Windows';
+  textForWindows.classList.add('title');
+  document.body.appendChild(textForWindows);
 
   const textLanguage = document.createElement('p');
-  textLanguage.innerHTML = `В данный момент выбран: ${language} язык`;
+  textLanguage.innerHTML = `В данный момент выбран: ${language.toUpperCase()} язык`;
   textLanguage.classList.add('title');
   document.body.appendChild(textLanguage);
 
