@@ -196,3 +196,19 @@ function handleKeyRelease(event) {
 
 document.addEventListener('keydown', handleKeyPressK);
 document.addEventListener('keyup', handleKeyRelease);
+
+const textareaTab = document.querySelector('.text-area');
+
+textareaTab.addEventListener('keydown', (event) => {
+  if (event.key === 'Tab') {
+    event.preventDefault();
+
+    const cursorPosition = textareaTab.selectionStart;
+    const startText = textareaTab.value.substring(0, cursorPosition);
+    const endText = textareaTab.value.substring(cursorPosition);
+
+    textareaTab.value = `${startText}    ${endText}`;
+    textareaTab.selectionStart = cursorPosition + 4;
+    textareaTab.selectionEnd = cursorPosition + 4;
+  }
+});
