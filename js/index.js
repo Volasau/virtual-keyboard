@@ -1,4 +1,5 @@
 import keyboardLayouts from './keys.js';
+import className from './className.js';
 
 const body = document.querySelector('body');
 body.classList.add('body');
@@ -42,6 +43,8 @@ function handleButtonClick(event) {
     textarea.selectionEnd = cursorPosition;
   } else if (key === 'Enter') {
     textarea.value += '\n';
+  } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win') {
+    textarea.value += '';
   } else if (key === 'Tab') {
     textarea.value += '    ';
   } else if (key === 'space') {
@@ -79,7 +82,7 @@ function renderKeyboard() {
     for (let j = 0; j < row.length; j += 1) {
       const key = row[j];
       const keyElement = document.createElement('div');
-      keyElement.setAttribute('class', `Key${key.toUpperCase()}`);
+      keyElement.setAttribute('class', `Key${key.toUpperCase()} ${className[key]}`);
       keyElement.classList.add('key');
       keyElement.textContent = key;
       switch (key) {
@@ -93,7 +96,6 @@ function renderKeyboard() {
           keyElement.classList.add('del');
           break;
         case 'Caps lock':
-          keyElement.setAttribute('class', 'CapsLock key');
           keyElement.classList.add('caps-lock');
           break;
         case 'Enter':
@@ -101,7 +103,9 @@ function renderKeyboard() {
           break;
         case 'Shift':
           keyElement.classList.add('shift');
-
+          break;
+        case 'ShiftR':
+          keyElement.classList.add('shift');
           break;
         case 'Ctrl':
           keyElement.classList.add('ctrl');

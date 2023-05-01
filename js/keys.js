@@ -48,7 +48,7 @@ const keyboardLayouts = {
       "'",
       'Enter',
     ],
-    ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '▲', 'Shift'],
+    ['Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '▲', 'ShiftR'],
     ['Ctrl', 'Win', 'Alt', 'space', 'Alt', '◄', '▼', '►', 'Ctrl'],
   ],
   ru: [
@@ -100,7 +100,7 @@ const keyboardLayouts = {
       'э',
       'Enter',
     ],
-    ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '▲', 'Shift'],
+    ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '▲', 'ShiftR'],
     ['Ctrl', 'Win', 'Alt', 'space', 'Alt', '◄', '▼', '►', 'Ctrl'],
   ],
 };
