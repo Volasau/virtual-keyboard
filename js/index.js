@@ -51,7 +51,12 @@ function handleButtonClick(event) {
   } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win' || key === 'AltG' || key === 'Ctrl' || key === 'Ctrlr') {
     textarea.value += '';
   } else if (key === 'Tab') {
-    textarea.value += '    ';
+    const cursorPosition = textarea.selectionStart;
+    const startText = textarea.value.substring(0, cursorPosition);
+    const endText = textarea.value.substring(cursorPosition);
+    textarea.value = `${startText}    ${endText}`;
+    textarea.selectionStart = cursorPosition + 4;
+    textarea.selectionEnd = cursorPosition + 4;
   } else if (key === 'space') {
     textarea.value += ' ';
   } else if (key === 'Caps lock') {
