@@ -48,7 +48,7 @@ function handleButtonClick(event) {
     textarea.value = `${startText}\n${endText}`;
     textarea.selectionStart = cursorPosition + 1;
     textarea.selectionEnd = cursorPosition + 1;
-  } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win' || key === 'AltG') {
+  } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win' || key === 'AltG' || key === 'Ctrl' || key === 'Ctrlr') {
     textarea.value += '';
   } else if (key === 'Tab') {
     textarea.value += '    ';
