@@ -64,7 +64,7 @@ function handleButtonClick(event) {
   textarea.focus();
 }
 
-const removeKeyboard = () => {
+function removeKeyboard() {
   const keyboardContainer = document.querySelector('.keyboard-wrapper');
   const textTitle = document.querySelectorAll('.title');
   if (keyboardContainer) {
@@ -73,7 +73,7 @@ const removeKeyboard = () => {
   textTitle.forEach((el) => {
     el.remove();
   });
-};
+}
 
 function renderKeyboard() {
   const keyboardContainer = document.createElement('div');
@@ -160,15 +160,16 @@ function renderKeyboard() {
 }
 renderKeyboard();
 
-const toggleLanguage = () => {
+function toggleLanguage() {
   if (language === 'en') {
     language = 'ru';
   } else {
     language = 'en';
   }
   localStorage.setItem('language', language);
+  window.location.reload();
   renderKeyboard();
-};
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.altKey) {
@@ -212,3 +213,8 @@ textareaTab.addEventListener('keydown', (event) => {
     textareaTab.selectionEnd = cursorPosition + 4;
   }
 });
+
+window.onload = function addFocusInTextarea() {
+  const textareaFocus = document.querySelector('.text-area');
+  textareaFocus.focus();
+};
