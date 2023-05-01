@@ -42,7 +42,12 @@ function handleButtonClick(event) {
     textarea.selectionStart = cursorPosition;
     textarea.selectionEnd = cursorPosition;
   } else if (key === 'Enter') {
-    textarea.value += '\n';
+    const cursorPosition = textarea.selectionStart;
+    const startText = textarea.value.substring(0, cursorPosition);
+    const endText = textarea.value.substring(cursorPosition);
+    textarea.value = `${startText}\n${endText}`;
+    textarea.selectionStart = cursorPosition + 1;
+    textarea.selectionEnd = cursorPosition + 1;
   } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win') {
     textarea.value += '';
   } else if (key === 'Tab') {
