@@ -48,7 +48,7 @@ function handleButtonClick(event) {
     textarea.value = `${startText}\n${endText}`;
     textarea.selectionStart = cursorPosition + 1;
     textarea.selectionEnd = cursorPosition + 1;
-  } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win') {
+  } else if (key === 'Shift' || key === 'ShiftR' || key === 'Alt' || key === 'Win' || key === 'AltG') {
     textarea.value += '';
   } else if (key === 'Tab') {
     textarea.value += '    ';
@@ -115,7 +115,13 @@ function renderKeyboard() {
         case 'Ctrl':
           keyElement.classList.add('ctrl');
           break;
+        case 'Ctrlr':
+          keyElement.classList.add('ctrl');
+          break;
         case 'Alt':
+          keyElement.classList.add('alt');
+          break;
+        case 'AltG':
           keyElement.classList.add('alt');
           break;
         case 'Win':

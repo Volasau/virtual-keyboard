@@ -91,9 +91,11 @@ const className = {
   б: 'Comma',
   ю: 'Period',
   Ctrl: 'ControlLeft',
+  Ctrlr: 'ControlRight',
   Win: 'MetaLeft',
   Alt: 'AltLeft',
   space: 'Space',
+  AltG: 'AltRight',
 };
 
 export default className;
